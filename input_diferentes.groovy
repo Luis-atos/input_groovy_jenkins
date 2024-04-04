@@ -1,4 +1,5 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
+// url de iconos y colores --> https://wilsonmar.github.io/jenkins2-pipeline/
 node {
     stage(' Clone sources') {
          git url: 'git@git.servdev.mdef.es:lmunma1/experimento-impoexpo.git'
