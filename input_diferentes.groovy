@@ -147,3 +147,38 @@ echo "Hello: "+ userInput
         )
     }
 }
+
+def USER_INPUT = input(
+                    message: 'User input required - Some Yes or No question?',
+                    parameters: [
+                            [$class: 'ChoiceParameterDefinition',
+                             choices: ['no','yes'].join('\n'),
+                             name: 'input',
+                             description: 'Menu - select box option']
+                    ])
+
+            echo "The answer is: ${USER_INPUT}"
+
+
+******************
+    stage('Enter Domain') {
+            steps {
+                script{
+                    
+                  def USER_INPUT2 = input(
+                    message: 'User input required - Some Yes or No question?',
+                    parameters: [
+                            [$class: 'StringParameterDefinition',
+                             name: 'input',
+                             description: 'Menu - select box option']
+                    ])
+
+            echo "The answer is: ${USER_INPUT2}"    
+            
+                  userInput = input(id: 'userInput', message: 'Merge to?',
+                  parameters: [[$class: 'ChoiceParameterDefinition', defaultValue: 'strDef', 
+                  description:'describing choices', name:'nameChoice', choices: "testIBM\nOTROS\nProduction\nDevelop\nMaster"]
+             ])
+                }
+            }
+        }
